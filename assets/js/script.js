@@ -17,63 +17,22 @@ const spanTwo = document.querySelector(".span-2");
 const spanThre = document.querySelector(".span-3");
 const spanFour = document.querySelector(".span-4");
 
-const everySecond = initialSecond => {
-    let second = initialSecond
+const countdownDry = (initialTime, span, intervalTime, timeFor) => {
+    let time = initialTime
     setInterval(() => {
-        if (second === 0) {
-            second = initialSecond
+        if (time === 0) {
+            time = initialTime
         }
-        --second
-        spanOne.innerHTML = `${second}S`
-    }, 1000)
-    spanOne.innerHTML = `${second}S`
+        --time
+        span.innerHTML = `${time}${timeFor}`
+    }, intervalTime)
+    span.innerHTML = `${time}${timeFor}`
 }
 
-everySecond(60)
-
-
-const everyMminute =  initialMinute => {
-    let minute = initialMinute
-    setInterval(() => {
-        if (minute===0) {
-            minute = initialMinute
-        }
-        --minute
-        spanTwo.innerHTML = `${minute}M`
-    }, 60000)
-    spanTwo.innerHTML = `${minute}M`
-}
-
-everyMminute(59)
-
-
-const everyHour =  initialHour => {
-    let hour = initialHour
-    setInterval(() => {
-        if (hour===0) {
-            hour = initialHour
-        }
-        --hour
-        spanThre.innerHTML = `${hour}H`
-    }, 3600000)
-    spanThre.innerHTML = `${hour}H`
-}
-
-everyHour(23)
-
-const everyDay =  initialDay => {
-    let day = initialDay
-    setInterval(() => {
-        if (day===0) {
-            day = initialDay
-        }
-        --day
-        spanFour.innerHTML = `${day}D`
-    }, 86400000)
-    spanFour.innerHTML = `${day}D`
-}
-
-everyDay(3)
+countdownDry(60, spanOne, 1000, "S") //s
+countdownDry(59, spanTwo, 60000, "M") //m
+countdownDry(23, spanThre, 3600000, "H") //h
+countdownDry(3, spanFour, 86400000, "D") //d
 
 
 
