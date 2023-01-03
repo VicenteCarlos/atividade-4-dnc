@@ -20,10 +20,7 @@ const spanFour = document.querySelector(".span-4");
 const countdownDry = (initialTime, span, intervalTime, timeFor) => {
     let time = initialTime
     setInterval(() => {
-        if (time === 0) {
-            time = initialTime
-        }
-        --time
+        time === 0 ? time = initialTime : --time
         span.innerHTML = `${time}${timeFor}`
     }, intervalTime)
     span.innerHTML = `${time}${timeFor}`
